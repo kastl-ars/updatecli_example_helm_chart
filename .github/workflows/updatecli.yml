@@ -30,6 +30,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Updatecli in Apply mode
-        run: updatecli pipeline apply --config updatecli/updatecli.d
+        run: updatecli pipeline apply
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
