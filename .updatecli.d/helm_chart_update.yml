@@ -39,11 +39,11 @@ scms:
   updatecli_example_helm_chart:
     kind: "github"
     spec:
+      owner: "kastl-ars"
+      repository: "updatecli_example_helm_chart"
       branch: "main"
       user: "Johannes Kastl"
       email: "johannes.kastl@atvantage.com"
-      owner: "kastl-ars"
-      repository: "updatecli_example_helm_chart"
       username: '{{ requiredEnv "GITHUB_ACTOR" }}'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
 
