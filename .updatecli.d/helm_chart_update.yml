@@ -44,7 +44,7 @@ scms:
       branch: "main"
       user: "Johannes Kastl"
       email: "johannes.kastl@atvantage.com"
-      username: '{{ requiredEnv "GITHUB_ACTOR" }}'
+      username: '{{ requiredEnv "GITHUB_AUTHOR" }}'
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
 
 actions:
