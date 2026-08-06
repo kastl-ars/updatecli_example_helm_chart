@@ -51,6 +51,3 @@ actions:
   default:
     kind: "github/pullrequest"
     scmid: "updatecli_example_helm_chart"
-    spec:
-      merge:
-        strategy: auto
