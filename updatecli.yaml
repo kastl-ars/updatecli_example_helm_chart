@@ -8,7 +8,7 @@ sources:
     spec:
       owner: "nginx"
       repository: "nginx"
-      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
       username: "kastl-ars"
       typefilter:
         latest: true
