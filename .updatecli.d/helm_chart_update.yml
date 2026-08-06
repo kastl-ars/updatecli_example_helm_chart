@@ -42,9 +42,7 @@ scms:
       owner: "kastl-ars"
       repository: "updatecli_example_helm_chart"
       branch: "main"
-      user: "Johannes Kastl"
-      email: "johannes.kastl@atvantage.com"
-      username: '{{ requiredEnv "GITHUB_AUTHOR" }}'
+      # username is only required for private repositories
       token: '{{ requiredEnv "UPDATECLI_GITHUB_TOKEN" }}'
 
 actions:
