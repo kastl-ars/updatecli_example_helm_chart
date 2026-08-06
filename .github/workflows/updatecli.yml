@@ -28,11 +28,11 @@ jobs:
         uses: updatecli/updatecli-action@5dfc616e57b07d2302c3f37e5b72a4ead82dbbf8  # v3.4.0
 
       - name: Run Updatecli in Dry Run mode
-        run: updatecli pipeline diff
+        run: updatecli pipeline diff --config .updatecli.d/
         env:
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Updatecli in Apply mode
-        run: updatecli pipeline apply
+        run: updatecli pipeline apply --config .updatecli.d/
         env:
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
