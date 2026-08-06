@@ -1,0 +1,59 @@
+---
+name: "Bump the nginx container image and helm chart versions"
+
+sources:
+  nginx-release:
+    kind: "githubrelease"
+    name: "Get the latest nginx version"
+    spec:
+      owner: "nginx"
+      repository: "nginx"
+      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      username: "kastl-ars"
+      typefilter:
+        latest: true
+    transformers:
+      - trimprefix: "release-"
+
+conditions:
+  docker:
+    name: "Nginx container image published on DockerHub"
+    kind: dockerimage
+    spec:
+      image: "docker.io/library/nginx"
+      architecture: "linux/amd64"
+
+targets:
+  updatecli-test-chart:
+    name: "Update the updatecli-test-chart helm chart"
+    kind: "helmchart"
+    spec:
+      name: "charts/updatecli-test-chart"
+      file: "values.yaml"
+      key: "$.image.tag"
+      versionincrement: "patch"
+    scmid: "updatecli_example_helm_chart"
+    sourceid: "nginx-release"
+
+scms:
+  updatecli_example_helm_chart:
+    kind: "github"
+    spec:
+      branch: "main"
+      user: "Johannes Kastl"
+      email: "johannes.kastl@atvantage.com"
+      owner: "kastl-ars"
+      repository: "updatecli_example_helm_chart"
+      username: "kastl-ars"
+      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+
+actions:
+  default:
+    kind: "github/pullrequest"
+    scmid: "updatecli_example_helm_chart"
+    spec:
+      merge:
+        strategy: auto
+      labels:
+        - "dependencies"
+        - "updatecli-test-chart"
