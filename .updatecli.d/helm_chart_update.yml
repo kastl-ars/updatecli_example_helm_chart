@@ -54,6 +54,3 @@ actions:
     spec:
       merge:
         strategy: auto
-      labels:
-        - "dependencies"
-        - "updatecli-test-chart"
