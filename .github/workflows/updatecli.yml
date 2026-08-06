@@ -31,8 +31,10 @@ jobs:
         run: updatecli pipeline diff --config .updatecli.d/
         env:
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_AUTHOR: ${{ secrets.GITHUB_AUTHOR }}
 
       - name: Run Updatecli in Apply mode
         run: updatecli pipeline apply --config .updatecli.d/
         env:
           UPDATECLI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_AUTHOR: ${{ secrets.GITHUB_AUTHOR }}
