@@ -44,7 +44,6 @@ scms:
       email: "johannes.kastl@atvantage.com"
       owner: "kastl-ars"
       repository: "updatecli_example_helm_chart"
-      username: "kastl-ars"
       token: '{{ requiredEnv "GITHUB_TOKEN" }}'
 
 actions:
