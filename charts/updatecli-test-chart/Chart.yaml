@@ -1,0 +1,6 @@
+apiVersion: v2
+name: updatecli-test-chart
+description: Pseudo chart to show updating it via Updatecli
+
+type: application
+version: 0.1.0
